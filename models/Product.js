@@ -11,9 +11,10 @@ const ProductSchema = new mongoose.Schema(
     },
     image: String,
     quantity: Number,
-  },
-  { timestamps: true }
-);
+  
+  shop: {type: mongoose.Schema.Types.ObjectId, ref: "Shop"}
+  // { timestamps: true }
+  });
 
-ProductSchema.plugin(mongooseSlugPlugin, { tmpl: '<%=name%>' });
+// ProductSchema.plugin(mongooseSlugPlugin, { tmpl: '<%=name%>' });
 module.exports = mongoose.model('Product', ProductSchema);
